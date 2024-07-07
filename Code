@@ -1,0 +1,82 @@
+int a = 0 ; 
+
+const int motor1Pin1 = 5;
+const int motor1Pin2 = 6;
+const int motor2Pin1 = 10;
+const int motor2Pin2 = 11;
+
+
+
+void setup() {
+ pinMode (5, OUTPUT);
+ pinMode (6, OUTPUT);
+ pinMode (10, OUTPUT);
+ pinMode (11, OUTPUT);
+ pinMode (A0, INPUT);
+}
+
+void loop() {
+  a = digitalRead(A0);
+  if (a == 1) {
+  Forward() ;
+  
+  }
+  else  {
+      stop() ;
+      delay(30);
+      Right();
+      delay(1075);
+      Forward();
+  }
+}
+void stop() {
+   digitalWrite(motor1Pin1, LOW);
+    digitalWrite(motor1Pin2, LOW);
+    digitalWrite(motor2Pin1, LOW);
+    digitalWrite(motor2Pin2, LOW);
+    
+
+}
+
+// Move Forward
+void Forward () {
+    digitalWrite(motor1Pin1, HIGH);
+    digitalWrite(motor1Pin2, LOW);
+    digitalWrite(motor2Pin1, HIGH);
+    digitalWrite(motor2Pin2, LOW);
+    
+
+
+}
+// Move Backward
+void Backward () {
+    digitalWrite(motor1Pin1, LOW);
+    digitalWrite(motor1Pin2, HIGH);
+    digitalWrite(motor2Pin1, LOW);
+    digitalWrite(motor2Pin2, HIGH);
+    
+
+
+}
+// Move right
+void Right() { 
+    digitalWrite(motor1Pin1, LOW);
+    digitalWrite(motor1Pin2, HIGH);
+    digitalWrite(motor2Pin1, LOW);
+    digitalWrite(motor2Pin2, LOW);
+    
+
+}
+
+
+// Move left 
+void Left () {
+    digitalWrite(motor1Pin1, HIGH);
+    digitalWrite(motor1Pin2, LOW);
+    digitalWrite(motor2Pin1, HIGH);
+    digitalWrite(motor2Pin2, HIGH);
+    
+
+
+
+}
